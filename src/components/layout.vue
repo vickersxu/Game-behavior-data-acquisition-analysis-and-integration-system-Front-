@@ -56,7 +56,8 @@
                                 <Icon type="ios-navigate"></Icon>
                                 概况
                             </template>
-                            <MenuItem name="1-1">实时统计</MenuItem>
+                            <MenuItem @click.native="realtimeClick" name="1-1" >实时统计</MenuItem>
+<!--                            <router-link to="/realtime" tag="MenuItem" >实时统计</router-link>-->
                             <MenuItem name="1-2">整体趋势</MenuItem>
 <!--                            <MenuItem name="1-3">Option 3</MenuItem>-->
                         </Submenu>
@@ -97,7 +98,7 @@
                         <BreadcrumbItem>Layout</BreadcrumbItem>
                     </Breadcrumb>
                     <Content :style="{padding: '24px', minHeight: '700px', background: '#fff'}">
-                        Content
+<!--                        <div id ="global"></div>-->
                     </Content>
                 </Layout>
             </Layout>
@@ -105,7 +106,17 @@
     </div>
 </template>
 <script>
+    import realtime from '../components/real-time'
     export default {
-    name:'layout'
+        name:'layout',
+        components:{
+            realtime
+        },
+        methods:{
+            realtimeClick(){
+                this.$router.push('/realtime')
+                console.log('click')
+            }
+        }
     }
 </script>

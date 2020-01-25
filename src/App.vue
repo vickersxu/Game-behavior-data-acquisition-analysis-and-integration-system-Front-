@@ -11,12 +11,13 @@
 // import api from './components/api'
 
 import Layout from "./components/layout";
+
 export default {
-  name: 'app',
-  components: {
+    name: 'app',
+    components: {
       Layout
       // api
-  }
+    }
 }
 </script>
 
