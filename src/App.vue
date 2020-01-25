@@ -1,19 +1,21 @@
 <template>
 
-    <div id="app">
-
-    <api/>
-    </div>
+<!--    <div id="app">-->
+    <layout/>
+<!--    <api/>-->
+<!--    </div>-->
 
 </template>
 
 <script>
-import api from './components/api'
+// import api from './components/api'
 
+import Layout from "./components/layout";
 export default {
   name: 'app',
   components: {
-      api
+      Layout
+      // api
   }
 }
 </script>
