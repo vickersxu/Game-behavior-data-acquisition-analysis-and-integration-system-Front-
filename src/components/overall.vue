@@ -1,6 +1,6 @@
 <template>
     <div>
-       <h2>i am charts</h2>
+       <h2>i am overall</h2>
     </div>
 </template>
 

@@ -11,21 +11,30 @@ import Vue from 'vue'
 Vue.use(VueRouter);
 
 import realtime from '../components/real-time'
+import overall from '../components/overall'
+import newUser from '../components/newUser'
+import activeUser from '../components/activeUser'
+
 
 const  routes=[
-    // {
-    //     path:'',
-    //     redirect:null
-    //
-    // },
 
     {
         path:'/realtime',
         component:realtime
     },
-    // {
-    //
-    // }
+    {
+        path:'/overall',
+        component:overall
+    },
+    {
+        path:'/newUser',
+        component:newUser
+    },
+    {
+        path:'/activeUser',
+        component:activeUser
+    },
+
 
 ];
 

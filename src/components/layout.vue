@@ -57,8 +57,8 @@
                                 概况
                             </template>
                             <MenuItem @click.native="realtimeClick" name="1-1" >实时统计</MenuItem>
-<!--                            <router-link to="/realtime" tag="MenuItem" >实时统计</router-link>-->
-                            <MenuItem name="1-2">整体趋势</MenuItem>
+                            <MenuItem @click.native="overallClick" name="1-2" >整体趋势</MenuItem>
+
 <!--                            <MenuItem name="1-3">Option 3</MenuItem>-->
                         </Submenu>
                         <Submenu name="2">
@@ -66,8 +66,9 @@
                                 <Icon type="ios-keypad"></Icon>
                                 用户分析
                             </template>
-                            <MenuItem name="2-1">新增用户</MenuItem>
-                            <MenuItem name="2-2">活跃用户</MenuItem>
+                            <MenuItem @click.native="newUserClick" name="2-1" >新增用户</MenuItem>
+                            <MenuItem @click.native="activeUserClick" name="2-2" >活跃用户</MenuItem>
+
                         </Submenu>
                         <Submenu name="3">
                             <template slot="title">
@@ -99,6 +100,7 @@
                     </Breadcrumb>
                     <Content :style="{padding: '24px', minHeight: '700px', background: '#fff'}">
 <!--                        <div id ="global"></div>-->
+                        <router-view/>
                     </Content>
                 </Layout>
             </Layout>
@@ -106,17 +108,30 @@
     </div>
 </template>
 <script>
-    import realtime from '../components/real-time'
+
     export default {
         name:'layout',
-        components:{
-            realtime
-        },
+        // components:{
+        //     realtime
+        // },
         methods:{
             realtimeClick(){
                 this.$router.push('/realtime')
-                console.log('click')
+                console.log('realtimeclick')
+            },
+            overallClick(){
+                this.$router.push('/overall')
+                console.log('overallclick')
+            },
+            newUserClick(){
+                this.$router.push('/newUser')
+                console.log('newUserclick')
+            },
+            activeUserClick(){
+                this.$router.push('/activeUser')
+                console.log('activeUserclick')
             }
+
         }
     }
 </script>
