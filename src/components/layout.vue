@@ -70,28 +70,40 @@
                             <MenuItem @click.native="activeUserClick" name="2-2" >活跃用户</MenuItem>
 
                         </Submenu>
-                        <Submenu name="3" @click.native="gamebehaviorClick">
+                        <div @click="gamebehaviorClick">
+
+                            <Submenu name="3" >
                             <template slot="title" >
-                                <Icon type="ios-analytics"></Icon>
+                                <Icon type="ios-analytics" ></Icon>
                                 游戏行为
                             </template>
-<!--                            <MenuItem name="3-1">游戏启动数据</MenuItem>-->
-<!--                            <MenuItem name="3-2">游戏关卡数据</MenuItem>-->
-<!--                            <MenuItem name="3-3">游戏活动1数据</MenuItem>-->
-<!--                            <MenuItem name="3-3">游戏活动2数据</MenuItem>-->
-                            <router-view name="gameBehavior"/>
+
+<!--                                    <MenuItem name="3-1">游戏启动数据</MenuItem>-->
+<!--                                    <MenuItem name="3-2">游戏关卡数据</MenuItem>-->
+<!--                                    <MenuItem name="3-3">游戏活动1数据</MenuItem>-->
+<!--                                    <MenuItem name="3-4">游戏活动2数据</MenuItem>-->
+
+                                <router-view is="gameBehavior"/>
                         </Submenu>
-                        <Submenu name="4" @click.native="ABtestClick">
+
+                        </div>
+
+                        <div @click="ABtestClick" >
+
+                            <Submenu name="4" >
                             <template slot="title">
-                                <Icon type="ios-analytics"></Icon>
+                                <Icon type="ios-analytics" ></Icon>
                                 A/B test
                             </template>
-<!--                            <MenuItem name="3-1">group-A</MenuItem>-->
-<!--                            <MenuItem name="3-2">group-B</MenuItem>-->
-<!--                            <MenuItem name="3-3">group-C</MenuItem>-->
-<!--                            <MenuItem name="3-3">group-D</MenuItem>-->
-                            <router-view name="ABtest"/>
+                                <!--                            <MenuItem name="3-1">group-A</MenuItem>-->
+                                <!--                            <MenuItem name="3-2">group-B</MenuItem>-->
+                                <!--                            <MenuItem name="3-3">group-C</MenuItem>-->
+                                <!--                            <MenuItem name="3-3">group-D</MenuItem>-->
+                                <router-view is="ABtest"/>
                         </Submenu>
+
+                        </div>
+
                     </Menu>
                 </Sider>
                 <Layout :style="{padding: '0 24px 24px'}">
@@ -109,12 +121,14 @@
     </div>
 </template>
 <script>
-
+    import gameBehavior from '../components/gameBehavior'
+    import ABtest from '../components/ABtest'
     export default {
         name:'layout',
-        // components:{
-        //     realtime
-        // },
+        components:{
+            gameBehavior,
+            ABtest,
+        },
         methods:{
             realtimeClick(){
                 this.$router.push('/realtime')
@@ -133,7 +147,7 @@
                 console.log('activeUserclick')
             },
             gamebehaviorClick(){
-                this.$router.push('/gamebehavior')
+                this.$router.push('/gameBehavior')
                 console.log('gamebehaviorClick')
             },
             ABtestClick(){

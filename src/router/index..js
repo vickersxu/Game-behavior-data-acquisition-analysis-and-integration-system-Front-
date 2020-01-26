@@ -10,15 +10,17 @@ import Vue from 'vue'
 
 Vue.use(VueRouter);
 
+import layout from "../components/layout";
 import realtime from '../components/real-time'
 import overall from '../components/overall'
 import newUser from '../components/newUser'
 import activeUser from '../components/activeUser'
-import gameBehavior from '../components/gameBehavior'
+// import gameBehavior from '../components/gameBehavior'
 import ABtest from '../components/ABtest'
 
 
 const  routes=[
+
 
     {
         path:'/realtime',
@@ -35,16 +37,6 @@ const  routes=[
     {
         path:'/activeUser',
         component:activeUser
-    },
-    {
-        path:'/gameBehavior',
-        name:'gameBehavior',
-        component:gameBehavior
-    },
-    {
-        path:'/ABtest',
-        name:'ABtest',
-        component:ABtest
     }
 
 
