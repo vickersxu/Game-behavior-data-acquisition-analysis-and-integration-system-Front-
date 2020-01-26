@@ -17,104 +17,104 @@
         </div>
         <br>
 
-        <div class="clearfix">
+<!--        <div class="clearfix">-->
 
 
-            <div style="float:left;">
-                <Card style="width:200px">
-                    <p slot="title">
-                        <Icon type="ios-film-outline"></Icon>
-                        新增用户(7日平均)
-                    </p>
-                    <a href="#" slot="extra" @click.prevent="changeLimit">
-                        <Icon type="ios-loop-strong"></Icon>
-                        Change
-                    </a>
-                    <ul>
-                        <li v-for="item in randomMovieList">
-                            <a :href="item.url" target="_blank">{{ item.name }}</a>
-                            <span>
-                    <Icon type="ios-star" v-for="n in 4" :key="n"></Icon><Icon type="ios-star" v-if="item.rate >= 9.5"></Icon><Icon type="ios-star-half" v-else></Icon>
-                    {{ item.rate }}
-                </span>
-                        </li>
-                    </ul>
-                </Card>
+<!--            <div style="float:left;">-->
+<!--                <Card style="width:200px">-->
+<!--                    <p slot="title">-->
+<!--                        <Icon type="ios-film-outline"></Icon>-->
+<!--                        新增用户(7日平均)-->
+<!--                    </p>-->
+<!--                    <a href="#" slot="extra" @click.prevent="changeLimit">-->
+<!--                        <Icon type="ios-loop-strong"></Icon>-->
+<!--                        Change-->
+<!--                    </a>-->
+<!--                    <ul>-->
+<!--                        <li v-for="item in randomMovieList">-->
+<!--                            <a :href="item.url" target="_blank">{{ item.name }}</a>-->
+<!--                            <span>-->
+<!--                    <Icon type="ios-star" v-for="n in 4" :key="n"></Icon><Icon type="ios-star" v-if="item.rate >= 9.5"></Icon><Icon type="ios-star-half" v-else></Icon>-->
+<!--                    {{ item.rate }}-->
+<!--                </span>-->
+<!--                        </li>-->
+<!--                    </ul>-->
+<!--                </Card>-->
 
 
-            </div>
-            <div style="float:left;margin-left:50px;">
+<!--            </div>-->
+<!--            <div style="float:left;margin-left:50px;">-->
 
-                <Card style="width:200px">
-                    <p slot="title">
-                        <Icon type="ios-film-outline"></Icon>
-                        活跃用户(7日平均)
-                    </p>
-                    <a href="#" slot="extra" @click.prevent="changeLimit">
-                        <Icon type="ios-loop-strong"></Icon>
-                        Change
-                    </a>
-                    <ul>
-                        <li v-for="item in randomMovieList">
-                            <a :href="item.url" target="_blank">{{ item.name }}</a>
-                            <span>
-                    <Icon type="ios-star" v-for="n in 4" :key="n"></Icon><Icon type="ios-star" v-if="item.rate >= 9.5"></Icon><Icon type="ios-star-half" v-else></Icon>
-                    {{ item.rate }}
-                </span>
-                        </li>
-                    </ul>
-                </Card>
+<!--                <Card style="width:200px">-->
+<!--                    <p slot="title">-->
+<!--                        <Icon type="ios-film-outline"></Icon>-->
+<!--                        活跃用户(7日平均)-->
+<!--                    </p>-->
+<!--                    <a href="#" slot="extra" @click.prevent="changeLimit">-->
+<!--                        <Icon type="ios-loop-strong"></Icon>-->
+<!--                        Change-->
+<!--                    </a>-->
+<!--                    <ul>-->
+<!--                        <li v-for="item in randomMovieList">-->
+<!--                            <a :href="item.url" target="_blank">{{ item.name }}</a>-->
+<!--                            <span>-->
+<!--                    <Icon type="ios-star" v-for="n in 4" :key="n"></Icon><Icon type="ios-star" v-if="item.rate >= 9.5"></Icon><Icon type="ios-star-half" v-else></Icon>-->
+<!--                    {{ item.rate }}-->
+<!--                </span>-->
+<!--                        </li>-->
+<!--                    </ul>-->
+<!--                </Card>-->
 
 
-            </div>
-            <div style="float:left;margin-left:50px;">
+<!--            </div>-->
+<!--            <div style="float:left;margin-left:50px;">-->
 
-                <Card style="width:200px">
-                    <p slot="title">
-                        <Icon type="ios-film-outline"></Icon>
-                        启动次数(7日平均)
-                    </p>
-                    <a href="#" slot="extra" @click.prevent="changeLimit">
-                        <Icon type="ios-loop-strong"></Icon>
-                        Change
-                    </a>
-                    <ul>
-                        <li v-for="item in randomMovieList">
-                            <a :href="item.url" target="_blank">{{ item.name }}</a>
-                            <span>
-                    <Icon type="ios-star" v-for="n in 4" :key="n"></Icon><Icon type="ios-star" v-if="item.rate >= 9.5"></Icon><Icon type="ios-star-half" v-else></Icon>
-                    {{ item.rate }}
-                </span>
-                        </li>
-                    </ul>
-                </Card>
+<!--                <Card style="width:200px">-->
+<!--                    <p slot="title">-->
+<!--                        <Icon type="ios-film-outline"></Icon>-->
+<!--                        启动次数(7日平均)-->
+<!--                    </p>-->
+<!--                    <a href="#" slot="extra" @click.prevent="changeLimit">-->
+<!--                        <Icon type="ios-loop-strong"></Icon>-->
+<!--                        Change-->
+<!--                    </a>-->
+<!--                    <ul>-->
+<!--                        <li v-for="item in randomMovieList">-->
+<!--                            <a :href="item.url" target="_blank">{{ item.name }}</a>-->
+<!--                            <span>-->
+<!--                    <Icon type="ios-star" v-for="n in 4" :key="n"></Icon><Icon type="ios-star" v-if="item.rate >= 9.5"></Icon><Icon type="ios-star-half" v-else></Icon>-->
+<!--                    {{ item.rate }}-->
+<!--                </span>-->
+<!--                        </li>-->
+<!--                    </ul>-->
+<!--                </Card>-->
 
-            </div>
-            <div style="float:left;margin-left:50px;">
+<!--            </div>-->
+<!--            <div style="float:left;margin-left:50px;">-->
 
-                <Card style="width:200px">
-                    <p slot="title">
-                        <Icon type="ios-film-outline"></Icon>
-                        使用时长(7日平均)
-                    </p>
-                    <a href="#" slot="extra" @click.prevent="changeLimit">
-                        <Icon type="ios-loop-strong"></Icon>
-                        Change
-                    </a>
-                    <ul>
-                        <li v-for="item in randomMovieList">
-                            <a :href="item.url" target="_blank">{{ item.name }}</a>
-                            <span>
-                    <Icon type="ios-star" v-for="n in 4" :key="n"></Icon><Icon type="ios-star" v-if="item.rate >= 9.5"></Icon><Icon type="ios-star-half" v-else></Icon>
-                    {{ item.rate }}
-                </span>
-                        </li>
-                    </ul>
-                </Card>
+<!--                <Card style="width:200px">-->
+<!--                    <p slot="title">-->
+<!--                        <Icon type="ios-film-outline"></Icon>-->
+<!--                        使用时长(7日平均)-->
+<!--                    </p>-->
+<!--                    <a href="#" slot="extra" @click.prevent="changeLimit">-->
+<!--                        <Icon type="ios-loop-strong"></Icon>-->
+<!--                        Change-->
+<!--                    </a>-->
+<!--                    <ul>-->
+<!--                        <li v-for="item in randomMovieList">-->
+<!--                            <a :href="item.url" target="_blank">{{ item.name }}</a>-->
+<!--                            <span>-->
+<!--                    <Icon type="ios-star" v-for="n in 4" :key="n"></Icon><Icon type="ios-star" v-if="item.rate >= 9.5"></Icon><Icon type="ios-star-half" v-else></Icon>-->
+<!--                    {{ item.rate }}-->
+<!--                </span>-->
+<!--                        </li>-->
+<!--                    </ul>-->
+<!--                </Card>-->
 
-            </div>
+<!--            </div>-->
 
-        </div>
+<!--        </div>-->
 
         <row>
             <i-col span="12">
