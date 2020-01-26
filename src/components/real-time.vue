@@ -1,8 +1,14 @@
 <template>
-    <div>
-       <h2>i am charts</h2>
-    </div>
+
+
+
+
+
 </template>
+
+
+
+
 
 <script>
     export default {

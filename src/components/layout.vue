@@ -104,6 +104,16 @@
 
                         </div>
 
+                        <Submenu name="5">
+                            <template slot="title">
+                                <Icon type="ios-keypad"></Icon>
+                                利润报表
+                            </template>
+                            <MenuItem @click.native="newUserClick" name="2-1" >收入</MenuItem>
+                            <MenuItem @click.native="activeUserClick" name="2-2" >成本</MenuItem>
+                            <MenuItem @click.native="newUserClick" name="2-3" >净利润</MenuItem>
+                        </Submenu>
+
                     </Menu>
                 </Sider>
                 <Layout :style="{padding: '0 24px 24px'}">
@@ -112,7 +122,7 @@
                         <BreadcrumbItem>Components</BreadcrumbItem>
                         <BreadcrumbItem>Layout</BreadcrumbItem>
                     </Breadcrumb>
-                    <Content :style="{padding: '24px', minHeight: '700px', background: '#fff'}">
+                    <Content :style="{padding: '24px', minHeight: '900px', background: '#fff'}">
                         <router-view/>
                     </Content>
                 </Layout>

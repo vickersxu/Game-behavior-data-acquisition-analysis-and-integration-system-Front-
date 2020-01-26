@@ -4,6 +4,7 @@ import ViewUI from 'view-design';
 import 'view-design/dist/styles/iview.css';
 import router from "./router/index.";
 
+
 Vue.config.productionTip = false
 Vue.use(ViewUI);
 
