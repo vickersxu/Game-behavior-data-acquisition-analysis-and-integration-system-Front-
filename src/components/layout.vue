@@ -49,8 +49,8 @@
                 </Menu>
             </Header>
             <Layout>
-                <Sider hide-trigger :style="{background: '#fff'}">
-                    <Menu active-name="1-2" theme="light" width="auto" :open-names="['1']">
+                <Sider hide-trigger :style="{background: '#515a6e'}">
+                    <Menu active-name="1-2" theme="dark" width="auto" :open-names="['1']">
                         <Submenu name="1">
                             <template slot="title">
                                 <Icon type="ios-navigate"></Icon>
@@ -122,7 +122,7 @@
                         <BreadcrumbItem>Components</BreadcrumbItem>
                         <BreadcrumbItem>Layout</BreadcrumbItem>
                     </Breadcrumb>
-                    <Content :style="{padding: '24px', minHeight: '900px', background: '#fff'}">
+                    <Content :style="{padding: '24px', minHeight: '900px', background: '#f5f7f9'}">
                         <router-view/>
                     </Content>
                 </Layout>
@@ -157,11 +157,11 @@
                 console.log('activeUserclick')
             },
             gamebehaviorClick(){
-                this.$router.push('/gameBehavior')
+                // this.$router.push('/gameBehavior')
                 console.log('gamebehaviorClick')
             },
             ABtestClick(){
-                this.$router.push('/ABtest')
+                // this.$router.push('/ABtest')
                 console.log('ABtestClick')
             }
 

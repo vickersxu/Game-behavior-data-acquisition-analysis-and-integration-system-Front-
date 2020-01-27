@@ -1,9 +1,9 @@
 <template>
     <div>
-        <MenuItem name="3-1">group-A</MenuItem>
-        <MenuItem name="3-2">group-B</MenuItem>
-        <MenuItem name="3-3">group-CC</MenuItem>
-        <MenuItem name="3-3">group-D</MenuItem>
+        <MenuItem name="4-1">游戏A</MenuItem>
+        <MenuItem name="4-2">游戏B</MenuItem>
+        <MenuItem name="4-3">游戏C</MenuItem>
+        <MenuItem name="4-3">游戏D</MenuItem>
     </div>
 
 </template>

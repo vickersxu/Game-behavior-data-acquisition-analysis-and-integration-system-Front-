@@ -1,125 +1,44 @@
 <template>
     <div>
-        <Row :gutter="20">
-            <i-col :xs="12" :md="8" :lg="4" v-for="(infor, i) in inforCardData" :key="`infor-${i}`" style="height: 120px;padding-bottom: 10px;">
-                <infor-card shadow :color="infor.color" :icon="infor.icon" :icon-size="36">
-                    <count-to :end="infor.count" count-class="count-style"/>
-                    <p>{{ infor.title }}</p>
-                </infor-card>
-            </i-col>
-        </Row>
+        <div style="padding: 12px 32px; border-bottom: 1px solid rgb(150, 205, 205);">
+            <Row :gutter="20">
+                <i-col :xs="12" :md="8" :lg="4" v-for="(infor, i) in inforCardData" :key="`infor-${i}`" style="height: 120px;padding-bottom: 10px;">
+                    <infor-card shadow :color="infor.color" :icon="infor.icon" :icon-size="36">
+                        <count-to :end="infor.count" count-class="count-style"/>
+                        <p>{{ infor.title }}</p>
+                    </infor-card>
+                </i-col>
+            </Row>
 
-        <div class="searchButton">
-            <Button type="primary" >查询数据</Button>
-            &nbsp;
-            &nbsp;
-            <Button type="success">导出Excel</Button>
+            <div class="searchButton">
+                <!--            <Button type="primary" >查询数据</Button>-->
+                <!--            &nbsp;-->
+                <!--            &nbsp;-->
+                <Button type="success">导出Excel</Button>
+            </div>
+            <br>
+
+            <row>
+                <i-col span="12">
+                    <Date-picker type="daterange" placement="right-start" placeholder="请选择日期范围" style="width: 200px"></Date-picker>
+                </i-col>
+            </row>
+    </div>
+        <br>
+        <div>
+            <RadioGroup type="button">
+                <Radio label="new">新增用户</Radio>
+                <Radio label="active">活跃用户</Radio>
+                <Radio label="gamecount">启动次数</Radio>
+                <Radio label="playtime">使用时长</Radio>
+            </RadioGroup>
         </div>
         <br>
-
-<!--        <div class="clearfix">-->
-
-
-<!--            <div style="float:left;">-->
-<!--                <Card style="width:200px">-->
-<!--                    <p slot="title">-->
-<!--                        <Icon type="ios-film-outline"></Icon>-->
-<!--                        新增用户(7日平均)-->
-<!--                    </p>-->
-<!--                    <a href="#" slot="extra" @click.prevent="changeLimit">-->
-<!--                        <Icon type="ios-loop-strong"></Icon>-->
-<!--                        Change-->
-<!--                    </a>-->
-<!--                    <ul>-->
-<!--                        <li v-for="item in randomMovieList">-->
-<!--                            <a :href="item.url" target="_blank">{{ item.name }}</a>-->
-<!--                            <span>-->
-<!--                    <Icon type="ios-star" v-for="n in 4" :key="n"></Icon><Icon type="ios-star" v-if="item.rate >= 9.5"></Icon><Icon type="ios-star-half" v-else></Icon>-->
-<!--                    {{ item.rate }}-->
-<!--                </span>-->
-<!--                        </li>-->
-<!--                    </ul>-->
-<!--                </Card>-->
-
-
-<!--            </div>-->
-<!--            <div style="float:left;margin-left:50px;">-->
-
-<!--                <Card style="width:200px">-->
-<!--                    <p slot="title">-->
-<!--                        <Icon type="ios-film-outline"></Icon>-->
-<!--                        活跃用户(7日平均)-->
-<!--                    </p>-->
-<!--                    <a href="#" slot="extra" @click.prevent="changeLimit">-->
-<!--                        <Icon type="ios-loop-strong"></Icon>-->
-<!--                        Change-->
-<!--                    </a>-->
-<!--                    <ul>-->
-<!--                        <li v-for="item in randomMovieList">-->
-<!--                            <a :href="item.url" target="_blank">{{ item.name }}</a>-->
-<!--                            <span>-->
-<!--                    <Icon type="ios-star" v-for="n in 4" :key="n"></Icon><Icon type="ios-star" v-if="item.rate >= 9.5"></Icon><Icon type="ios-star-half" v-else></Icon>-->
-<!--                    {{ item.rate }}-->
-<!--                </span>-->
-<!--                        </li>-->
-<!--                    </ul>-->
-<!--                </Card>-->
-
-
-<!--            </div>-->
-<!--            <div style="float:left;margin-left:50px;">-->
-
-<!--                <Card style="width:200px">-->
-<!--                    <p slot="title">-->
-<!--                        <Icon type="ios-film-outline"></Icon>-->
-<!--                        启动次数(7日平均)-->
-<!--                    </p>-->
-<!--                    <a href="#" slot="extra" @click.prevent="changeLimit">-->
-<!--                        <Icon type="ios-loop-strong"></Icon>-->
-<!--                        Change-->
-<!--                    </a>-->
-<!--                    <ul>-->
-<!--                        <li v-for="item in randomMovieList">-->
-<!--                            <a :href="item.url" target="_blank">{{ item.name }}</a>-->
-<!--                            <span>-->
-<!--                    <Icon type="ios-star" v-for="n in 4" :key="n"></Icon><Icon type="ios-star" v-if="item.rate >= 9.5"></Icon><Icon type="ios-star-half" v-else></Icon>-->
-<!--                    {{ item.rate }}-->
-<!--                </span>-->
-<!--                        </li>-->
-<!--                    </ul>-->
-<!--                </Card>-->
-
-<!--            </div>-->
-<!--            <div style="float:left;margin-left:50px;">-->
-
-<!--                <Card style="width:200px">-->
-<!--                    <p slot="title">-->
-<!--                        <Icon type="ios-film-outline"></Icon>-->
-<!--                        使用时长(7日平均)-->
-<!--                    </p>-->
-<!--                    <a href="#" slot="extra" @click.prevent="changeLimit">-->
-<!--                        <Icon type="ios-loop-strong"></Icon>-->
-<!--                        Change-->
-<!--                    </a>-->
-<!--                    <ul>-->
-<!--                        <li v-for="item in randomMovieList">-->
-<!--                            <a :href="item.url" target="_blank">{{ item.name }}</a>-->
-<!--                            <span>-->
-<!--                    <Icon type="ios-star" v-for="n in 4" :key="n"></Icon><Icon type="ios-star" v-if="item.rate >= 9.5"></Icon><Icon type="ios-star-half" v-else></Icon>-->
-<!--                    {{ item.rate }}-->
-<!--                </span>-->
-<!--                        </li>-->
-<!--                    </ul>-->
-<!--                </Card>-->
-
-<!--            </div>-->
-
-<!--        </div>-->
-
         <row>
-            <i-col span="12">
-                <Date-picker type="daterange" placement="right-start" placeholder="请选择日期范围" style="width: 200px"></Date-picker>
-            </i-col>
+        <Card shadow>
+            <div ref="dom" style="height: 400px;" ></div>
+<!--            <example style="height: 310px;"/>-->
+        </Card>
         </row>
 
     </div>
@@ -128,101 +47,128 @@
 <script>
 
     import InforCard from '../components/info-card'
-
+    import CountTo from '../components/count-to'
+    import echarts from 'echarts'
+    import { on, off } from '../libs/tools.js'
     export default {
-        name: "realtime",
+        name: 'serviceRequests',
         components:{
             InforCard,
+            CountTo,
         },
         data () {
             return {
-                movieList: [
-                    {
-                        name: 'The Shawshank Redemption',
-                        url: 'https://movie.douban.com/subject/1292052/',
-                        rate: 9.6
-                    },
-                    {
-                        name: 'Leon:The Professional',
-                        url: 'https://movie.douban.com/subject/1295644/',
-                        rate: 9.4
-                    },
-                    {
-                        name: 'Farewell to My Concubine',
-                        url: 'https://movie.douban.com/subject/1291546/',
-                        rate: 9.5
-                    },
-                    {
-                        name: 'Forrest Gump',
-                        url: 'https://movie.douban.com/subject/1292720/',
-                        rate: 9.4
-                    },
-                    {
-                        name: 'Life Is Beautiful',
-                        url: 'https://movie.douban.com/subject/1292063/',
-                        rate: 9.5
-                    },
-                    {
-                        name: 'Spirited Away',
-                        url: 'https://movie.douban.com/subject/1291561/',
-                        rate: 9.2
-                    },
-                    {
-                        name: "Schindler's List",
-                        url: 'https://movie.douban.com/subject/1295124/',
-                        rate: 9.4
-                    },
-                    {
-                        name: 'The Legend of 1900',
-                        url: 'https://movie.douban.com/subject/1292001/',
-                        rate: 9.2
-                    },
-                    {
-                        name: 'WALL·E',
-                        url: 'https://movie.douban.com/subject/2131459/',
-                        rate: 9.3
-                    },
-                    {
-                        name: 'Inception',
-                        url: 'https://movie.douban.com/subject/3541415/',
-                        rate: 9.2
-                    }
-                ],
-                randomMovieList: [],
+                dom: null,
                 inforCardData: [
-                    { title: '新增用户', icon: 'md-person-add', count: 803, color: '#2d8cf0' },
-                    { title: '累计点击', icon: 'md-locate', count: 232, color: '#19be6b' },
-                    { title: '新增问答', icon: 'md-help-circle', count: 142, color: '#ff9900' },
-                    { title: '分享统计', icon: 'md-share', count: 657, color: '#ed3f14' },
+                    { title: '新增用户', icon: 'md-person-add', count: 998, color: '#2d8cf0' },
+                    { title: '活跃用户', icon: 'md-person', count: 4998, color: '#19be6b' },
+                    { title: '启动次数', icon: 'md-locate', count: 142, color: '#ff9900' },
+                    { title: '使用时长', icon: 'md-share', count: 657, color: '#ed3f14' },
                     { title: '新增互动', icon: 'md-chatbubbles', count: 12, color: '#E46CBB' },
                     { title: '新增页面', icon: 'md-map', count: 14, color: '#9A66E4' }
                 ],
             }
         },
         methods: {
-            changeLimit () {
-                function getArrayItems(arr, num) {
-                    const temp_array = [];
-                    for (let index in arr) {
-                        temp_array.push(arr[index]);
-                    }
-                    const return_array = [];
-                    for (let i = 0; i<num; i++) {
-                        if (temp_array.length>0) {
-                            const arrIndex = Math.floor(Math.random()*temp_array.length);
-                            return_array[i] = temp_array[arrIndex];
-                            temp_array.splice(arrIndex, 1);
-                        } else {
-                            break;
-                        }
-                    }
-                    return return_array;
-                }
-                this.randomMovieList = getArrayItems(this.movieList, 5);
+            resize () {
+                this.dom.resize()
             }
         },
         mounted () {
-            this.changeLimit();
+
+            const option = {
+                tooltip: {
+                    trigger: 'axis',
+                    axisPointer: {
+                        type: 'cross',
+                        label: {
+                            backgroundColor: '#6a7985'
+                        }
+                    }
+                },
+                grid: {
+                    top: '3%',
+                    left: '1.2%',
+                    right: '1%',
+                    bottom: '3%',
+                    containLabel: true
+                },
+                xAxis: [
+                    {
+                        type: 'category',
+                        boundaryGap: false,
+                        data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日']
+                    }
+                ],
+                yAxis: [
+                    {
+                        type: 'value'
+                    }
+                ],
+                series: [
+                    {
+                        name: '运营商/网络服务',
+                        type: 'line',
+                        stack: '总量',
+                        areaStyle: { normal: {
+                                color: '#2d8cf0'
+                            } },
+                        data: [120, 132, 101, 134, 90, 230, 210]
+                    },
+                    {
+                        name: '银行/证券',
+                        type: 'line',
+                        stack: '总量',
+                        areaStyle: { normal: {
+                                color: '#10A6FF'
+                            } },
+                        data: [257, 358, 278, 234, 290, 330, 310]
+                    },
+                    {
+                        name: '游戏/视频',
+                        type: 'line',
+                        stack: '总量',
+                        areaStyle: { normal: {
+                                color: '#0C17A6'
+                            } },
+                        data: [379, 268, 354, 269, 310, 478, 358]
+                    },
+                    {
+                        name: '餐饮/外卖',
+                        type: 'line',
+                        stack: '总量',
+                        areaStyle: { normal: {
+                                color: '#4608A6'
+                            } },
+                        data: [320, 332, 301, 334, 390, 330, 320]
+                    },
+                    {
+                        name: '快递/电商',
+                        type: 'line',
+                        stack: '总量',
+                        label: {
+                            normal: {
+                                show: true,
+                                position: 'top'
+                            }
+                        },
+                        areaStyle: { normal: {
+                                color: '#398DBF'
+                            } },
+                        data: [820, 645, 546, 745, 872, 624, 258]
+                    }
+                ]
+            }
+
+            this.$nextTick(() => {
+                this.dom = echarts.init(this.$refs.dom)
+                this.dom.setOption(option)
+                on(window, 'resize', this.resize)
+            })
+
+        },
+        beforeDestroy () {
+            off(window, 'resize', this.resize)
         }
     }
 </script>
@@ -232,20 +178,16 @@
 
     .searchButton{
         position: absolute ;
-        left:85%;
-        top:15%;
-    }
-    .new7{
-
-    }
-    .active7{
-
-    }
-    .all{
-
-    }
-    .start{
-
+        left:90%;
+        top:29%;
+        z-index: 999;
     }
 
+
+</style>
+
+<style lang="less">
+    .count-style{
+        font-size: 50px;
+    }
 </style>
