@@ -109,9 +109,9 @@
                                 <Icon type="ios-keypad"></Icon>
                                 利润报表
                             </template>
-                            <MenuItem @click.native="newUserClick" name="2-1" >收入</MenuItem>
-                            <MenuItem @click.native="activeUserClick" name="2-2" >成本</MenuItem>
-                            <MenuItem @click.native="newUserClick" name="2-3" >净利润</MenuItem>
+                            <MenuItem @click.native="incomeClick" name="2-1" >收入</MenuItem>
+                            <MenuItem @click.native="costClick" name="2-2" >成本</MenuItem>
+                            <MenuItem @click.native="profitClick" name="2-3" >净利润</MenuItem>
                         </Submenu>
 
                     </Menu>
@@ -163,6 +163,20 @@
             ABtestClick(){
                 // this.$router.push('/ABtest')
                 console.log('ABtestClick')
+            },
+            incomeClick(){
+                // this.$router.push('/ABtest')
+                console.log('incomeClick')
+            }
+            ,
+            costClick(){
+                // this.$router.push('/ABtest')
+                console.log('costClick')
+            }
+            ,
+            profitClick(){
+                // this.$router.push('/ABtest')
+                console.log('profitClick')
             }
 
         }
