@@ -292,14 +292,14 @@
     .picker2{
         position: absolute ;
         left:45%;
-        top:32.5%;
+        top:20.5%;
         z-index: 999;
     }
 
     .picker1{
         position: absolute ;
         left:33%;
-        top:32.5%;
+        top:20.5%;
         z-index: 999;
     }
     .ivu-table .demo-table-info-row td{
