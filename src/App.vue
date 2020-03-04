@@ -17,7 +17,7 @@ import Layout from "./components/layout";
 export default {
     name: 'app',
     components: {
-      Layout
+      Layout,
       // api
     }
 }

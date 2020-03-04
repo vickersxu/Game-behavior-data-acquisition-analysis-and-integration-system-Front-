@@ -14,7 +14,7 @@
         },
         created() {
             request({
-                url: '/paihangbang'
+                url: '/dev/realtime'
             }).then(res => {
                 this.test=res
                 console.log(res);

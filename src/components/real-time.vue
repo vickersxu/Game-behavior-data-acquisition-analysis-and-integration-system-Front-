@@ -9,7 +9,7 @@
                     </infor-card>
                 </i-col>
             </Row>
-
+<!--            {{test}}-->
             <div class="searchButton">
                 <Button type="primary" >查询数据</Button>
                 &nbsp;
@@ -54,38 +54,26 @@
     import CountTo from '../components/count-to'
     import echarts from 'echarts'
     import { on, off } from '../libs/tools.js'
+    import {getRealtime,getGameInfo} from "../networking/real-time";
     export default {
         name: 'serviceRequests',
         components:{
             InforCard,
             CountTo,
         },
+
         data () {
             return {
                 dom: null,
                 inforCardData: [
-                    { title: '新增用户(人)', icon: 'md-person-add', count: 998, color: '#2d8cf0' },
-                    { title: '活跃用户(人)', icon: 'md-person', count: 4998, color: '#19be6b' },
-                    { title: '启动次数(次)', icon: 'md-locate', count: 14200, color: '#ff9900' },
-                    { title: '使用时长(秒)', icon: 'md-share', count: 657, color: '#ed3f14' },
+                    { title: '新增用户(人)', icon: 'md-person-add', count:0, color: '#2d8cf0' },
+                    { title: '活跃用户(人)', icon: 'md-person', count: 0, color: '#19be6b' },
+                    { title: '启动次数(次)', icon: 'md-locate', count: 0, color: '#ff9900' },
+                    { title: '使用时长(秒)', icon: 'md-share', count: 0, color: '#ed3f14' },
                     { title: '新增互动', icon: 'md-chatbubbles', count: 12, color: '#E46CBB' },
                     { title: '新增页面', icon: 'md-map', count: 14, color: '#9A66E4' }
                 ],
-                cityList: [
-                    {
-                        value: 'New York',
-                        label: 'New York'
-                    },
-                    {
-                        value: 'London',
-                        label: 'London'
-                    },
-                    {
-                        value: 'Sydney',
-                        label: 'Sydney'
-                    }
-
-                ],
+                cityList: [],
                 model1: '',
                 columns1: [
                     {
@@ -169,11 +157,63 @@
                         cellClassName: {
                             name: 'demo-table-info-cell-name'
                         }
-                    }]
+                    }],
+                hourdatas:[],
             }
 
         },
+        created() {
+
+            this.getRealtime()
+            // this.getGameInfo()
+        },
         methods: {
+
+            getRealtime(){
+                getRealtime().then(res =>{
+                    // console.log(res)
+                    let sum1=0;
+                    let sum2=0;
+                    let sum3=0;
+                    let sum4=0;
+
+                    for(let i of res[4]){
+                        this.cityList.push(
+                            {
+                                value: i['app_id'],
+                                label: i['app_name'],
+                            }
+                        )
+                    }
+                    for(let i of res) {
+                        console.log(i);
+                        for(let ii of i){
+                            if(ii['new_num']){
+                                console.log(ii)
+                                this.hourdatas.push(ii['new_num'])
+                                sum1=sum1+ii['new_num']
+                            }
+                            if(ii['active_num']){
+                                sum2=sum2+ii['active_num']
+                            }
+                            if(ii['start_count']){
+                                sum3=sum3+ii['start_count']
+                            }
+                            if(ii['avg_playtime']){
+                                sum4=sum4+ii['avg_playtime']
+                            }
+
+                        }
+                    }
+                    this.inforCardData[0].count=sum1;
+                    this.inforCardData[1].count=sum2;
+                    this.inforCardData[2].count=sum3;
+                    this.inforCardData[3].count=sum4;
+                    // console.log(this.hourdatas)
+                    console.log(Object.values(this.hourdatas))
+                })
+            },
+
             resize () {
                 this.dom.resize()
             },
@@ -235,7 +275,7 @@
 
                             }
                         },
-                        data: [120, 132, 101, 134, 90, 230, 210,120, 132, 101, 134, 90, 230, 210,120, 132, 101, 134, 90, 230, 210,90, 230, 210,230]
+                        data: []
                     },
 
                     {
@@ -304,24 +344,3 @@
     }
 </style>
 
-<!--<template>-->
-
-
-
-
-
-<!--</template>-->
-
-
-
-
-
-<!--<script>-->
-<!--    export default {-->
-<!--        name: "realtime"-->
-<!--    }-->
-<!--</script>-->
-
-<!--<style scoped>-->
-
-<!--</style>-->
