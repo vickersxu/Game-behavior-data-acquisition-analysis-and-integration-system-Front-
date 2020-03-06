@@ -64,6 +64,7 @@
 
         data () {
             return {
+                datass:[],
                 dom: null,
                 inforCardData: [
                     { title: '新增用户(人)', icon: 'md-person-add', count:0, color: '#2d8cf0' },
@@ -165,9 +166,15 @@
         created() {
 
             this.getRealtime()
+            this.abc()
             // this.getGameInfo()
         },
         methods: {
+
+            abc(){
+
+                this.datass=[379, 268, 354, 269, 310, 478, 358,379, 268, 354, 269, 310, 478, 358,379, 268, 354, 269, 310, 478, 358,310, 478, 358,478]
+            },
 
             getRealtime(){
                 getRealtime().then(res =>{
@@ -275,7 +282,7 @@
 
                             }
                         },
-                        data: []
+                        data: this.datass
                     },
 
                     {
