@@ -70,6 +70,17 @@
                             <MenuItem @click.native="activeUserClick" name="2-2" >活跃用户</MenuItem>
 
                         </Submenu>
+
+                        <Submenu name="5">
+                            <template slot="title">
+                                <Icon type="ios-keypad"></Icon>
+                                利润报表
+                            </template>
+                            <MenuItem @click.native="incomeClick" name="5-1" >收入</MenuItem>
+                            <MenuItem @click.native="costClick" name="5-2" >成本</MenuItem>
+                            <MenuItem @click.native="profitClick" name="5-3" >净利润</MenuItem>
+                        </Submenu>
+
                         <div @click="gamebehaviorClick">
 
                             <Submenu name="3" >
@@ -104,15 +115,17 @@
 
                         </div>
 
-                        <Submenu name="5">
+                        <Submenu name="6">
                             <template slot="title">
                                 <Icon type="ios-keypad"></Icon>
-                                利润报表
+                                Hive终端
                             </template>
-                            <MenuItem @click.native="incomeClick" name="2-1" >收入</MenuItem>
-                            <MenuItem @click.native="costClick" name="2-2" >成本</MenuItem>
-                            <MenuItem @click.native="profitClick" name="2-3" >净利润</MenuItem>
+                            <MenuItem @click.native="incomeClick" name="5-1" >查询</MenuItem>
+<!--                            <MenuItem @click.native="costClick" name="5-2" >成本</MenuItem>-->
+<!--                            <MenuItem @click.native="profitClick" name="5-3" >净利润</MenuItem>-->
                         </Submenu>
+
+
 
                     </Menu>
                 </Sider>

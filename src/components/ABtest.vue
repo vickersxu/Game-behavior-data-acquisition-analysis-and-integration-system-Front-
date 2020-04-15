@@ -1,9 +1,7 @@
 <template>
     <div>
-        <MenuItem name="4-1">游戏A</MenuItem>
-        <MenuItem name="4-2">游戏B</MenuItem>
-        <MenuItem name="4-3">游戏C</MenuItem>
-        <MenuItem name="4-3">游戏D</MenuItem>
+        <MenuItem name="4-1">奇幻之旅</MenuItem>
+        <MenuItem name="4-2">拯救小海豚</MenuItem>
     </div>
 
 </template>

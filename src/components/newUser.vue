@@ -282,22 +282,22 @@
     .searchButton{
         position: absolute ;
         left:85%;
-        top:11%;
+        top:8%;
         z-index: 999;
     }
 
 
     .picker2{
         position: absolute ;
-        left:45%;
-        top:11%;
+        left:26%;
+        top:8%;
         z-index: 999;
     }
 
     .picker1{
         position: absolute ;
-        left:33%;
-        top:11%;
+        left:15%;
+        top:8%;
         z-index: 999;
     }
 

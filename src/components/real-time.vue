@@ -24,7 +24,7 @@
 
             <row class="picker2">
                 <i-col span="12">
-                    <Date-picker type="daterange" placement="right-start" placeholder="请选择日期范围" style="width: 200px"></Date-picker>
+                    <Date-picker @on-change="time1" type="daterange" placement="right-start" placeholder="请选择日期范围" style="width: 200px"></Date-picker>
                 </i-col>
             </row>
 
@@ -44,6 +44,13 @@
                 <div ref="dom" style="height: 400px;" ></div>
             </Card>
         </row>
+        <br>
+        <p>Custom row styles:</p>
+        <Table :row-class-name="rowClassName" :columns="columns1" :data="data1"></Table>
+        <p>Custom column styles:</p>
+        <Table :columns="columns9" :data="data1"></Table>
+        <p>Custom arbitrary cell styles:</p>
+        <Table :columns="columns1" :data="data8"></Table>
 
     </div>
 </template>
