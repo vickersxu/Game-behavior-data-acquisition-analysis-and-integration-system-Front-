@@ -27,8 +27,8 @@
                     <strong>{{ row.name }}</strong>
                 </template>
                 <template slot-scope="{ row, index }" slot="action">
-                    <Button type="primary" size="small" style="margin-right: 5px" @click="show(index)">View</Button>
-                    <Button type="error" size="small" @click="remove(index)">CMP</Button>
+                    <Button type="primary" size="small" style="margin-right: 5px" @click="show(index)">人数</Button>
+                    <Button type="error" size="small" @click="remove(index)">次数</Button>
                 </template>
             </Table>
         </Row>
@@ -59,19 +59,19 @@
 
                 columns12: [
                     {
-                        title: 'Sort',
+                        title: 'Sort（分类）',
                         slot: 'name'
                     },
                     {
-                        title: 'Type',
+                        title: 'Type（名称）',
                         key: 'Type'
                     },
                     {
-                        title: 'Position',
+                        title: 'Position（位置）',
                         key: 'Position'
                     },
                     {
-                        title: '操作',
+                        title: '数据',
                         slot: 'action',
                         width: 150,
                         align: 'center'
@@ -79,25 +79,78 @@
                 ],
                 data6: [
                     {
-                        name: 'J123wn',
-                        Type: 18,
-                        Position: 'New York No. 1 Lake Park'
+                        name: 'Basic',
+                        Type:'pre_start',
+                        Position: 'start',
+                        sb:1888
                     },
                     {
-                        name: 'Jim Green',
-                        Type: 24,
-                        Position: 'London No. 1 Lake Park'
+                        name: 'User-Processes',
+                        Type: "level-1",
+                        Position: 'enter'
                     },
                     {
-                        name: 'Joe Black',
-                        Type: 30,
-                        Position: 'Sydney No. 1 Lake Park'
+                        name: 'User-Processes',
+                        Type: "level-2",
+                        Position: 'enter'
                     },
                     {
-                        name: 'Jon Snow',
-                        Type: 26,
-                        Position: 'Ottawa No. 2 Lake Park'
-                    }
+                        name: 'User-Processes',
+                        Type: "level-3",
+                        Position: 'enter'
+                    },
+                    {
+                        name: 'User-Processes',
+                        Type: "level-4",
+                        Position: 'enter'
+                    },
+                    {
+                        name: 'User-Processes',
+                        Type: "level-5",
+                        Position: 'enter'
+                    },
+                              {
+                        name: 'User-Processes',
+                        Type: "level-1",
+                        Position: 'finish'
+                    },
+                    {
+                        name: 'User-Processes',
+                        Type: "level-2",
+                        Position: 'finish'
+                    },
+                    {
+                        name: 'User-Processes',
+                        Type: "level-3",
+                        Position: 'finish'
+                    },
+                    {
+                        name: 'User-Processes',
+                        Type: "level-4",
+                        Position: 'finish'
+                    },
+                    {
+                        name: 'User-Processes',
+                        Type: "level-5",
+                        Position: 'finish'
+                    },
+                    {
+                        name: 'AD',
+                        Type: "渠道A",
+                        Position: 'success'
+                    }, {
+                        name: 'AD',
+                        Type: "渠道B",
+                        Position: 'success'
+                    },        {
+                        name: 'AD',
+                        Type: "渠道C",
+                        Position: 'success'
+                    }, {
+                        name: 'AD',
+                        Type: "渠道D",
+                        Position: 'success'
+                    },
                 ]
             }
         },
@@ -106,7 +159,7 @@
             show (index) {
                 this.$Modal.info({
                     title: 'User Info',
-                    content: `Name：${this.data6[index].Sort}<br>Age：${this.data6[index].Type}<br>Address：${this.data6[index].Position}`
+                    content: `次数：${this.data6[index].sb}<br>名称：${this.data6[index].Type}<br>分类：${this.data6[index].Position}`
                 })
             },
             remove (index) {

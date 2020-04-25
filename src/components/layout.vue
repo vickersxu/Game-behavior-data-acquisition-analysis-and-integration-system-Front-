@@ -8,14 +8,15 @@
     }
     .layout-logo{
 
-        width: 100px;
-        height: 30px;
-        background: url("https://file.iviewui.com/dist/2ecd3b0452aa197097d5131afacab7b8.png");
-        border-radius: 3px;
-        float: left;
-        position: relative;
-        top: 15px;
-        left: 20px;
+        /*width: 200px;*/
+        /*height: 40px;*/
+        /*background:url("../assets/112233.png");*/
+        /*border-radius: 3px;*/
+        /*!*float: left;*!*/
+        /*position: absolute;*/
+        /*top: 10px;*/
+        /*left: 0px;*/
+        /*background-repeat: no-repeat;*/
     }
     .layout-nav{
         width: 420px;
