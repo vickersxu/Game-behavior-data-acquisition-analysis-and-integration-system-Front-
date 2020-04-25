@@ -7,9 +7,10 @@
         overflow: hidden;
     }
     .layout-logo{
+
         width: 100px;
         height: 30px;
-        background: #5b6270;
+        background: url("https://file.iviewui.com/dist/2ecd3b0452aa197097d5131afacab7b8.png");
         border-radius: 3px;
         float: left;
         position: relative;
@@ -29,21 +30,17 @@
                 <Menu mode="horizontal" theme="dark" active-name="1">
                     <div class="layout-logo"></div>
                     <div class="layout-nav">
-                        <MenuItem name="1">
+                        <MenuItem name="1" @click.native="jieshao">
                             <Icon type="ios-navigate"></Icon>
-                            Item 1
+                            系统介绍
                         </MenuItem>
-                        <MenuItem name="2">
-                            <Icon type="ios-keypad"></Icon>
-                            Item 2
+                        <MenuItem name="2" @click.native="realtimeClick">
+                            <Icon type="ios-analytics"></Icon>
+                            数据分析
                         </MenuItem>
                         <MenuItem name="3">
-                            <Icon type="ios-analytics"></Icon>
-                            Item 3
-                        </MenuItem>
-                        <MenuItem name="4">
-                            <Icon type="ios-paper"></Icon>
-                            Item 4
+                            <Icon type="ios-keypad"></Icon>
+                            注销登录
                         </MenuItem>
                     </div>
                 </Menu>
@@ -120,7 +117,7 @@
                                 <Icon type="ios-keypad"></Icon>
                                 Hive终端
                             </template>
-                            <MenuItem @click.native="incomeClick" name="5-1" >查询</MenuItem>
+                            <MenuItem @click.native="hive" name="6-1" >查询</MenuItem>
 <!--                            <MenuItem @click.native="costClick" name="5-2" >成本</MenuItem>-->
 <!--                            <MenuItem @click.native="profitClick" name="5-3" >净利润</MenuItem>-->
                         </Submenu>
@@ -130,11 +127,11 @@
                     </Menu>
                 </Sider>
                 <Layout :style="{padding: '0 24px 24px'}">
-                    <Breadcrumb :style="{margin: '24px 0'}">
-                        <BreadcrumbItem>Home</BreadcrumbItem>
-                        <BreadcrumbItem>Components</BreadcrumbItem>
-                        <BreadcrumbItem>Layout</BreadcrumbItem>
-                    </Breadcrumb>
+<!--                    <Breadcrumb :style="{margin: '24px 0'}">-->
+<!--                        <BreadcrumbItem>Home</BreadcrumbItem>-->
+<!--                        <BreadcrumbItem>Components</BreadcrumbItem>-->
+<!--                        <BreadcrumbItem>Layout</BreadcrumbItem>-->
+<!--                    </Breadcrumb>-->
                     <Content :style="{padding: '24px', minHeight: '900px', background: '#f5f7f9'}">
                         <router-view/>
                     </Content>
@@ -146,6 +143,7 @@
 <script>
     import gameBehavior from '../components/gameBehavior'
     import ABtest from '../components/ABtest'
+
     export default {
         name:'layout',
         components:{
@@ -178,18 +176,28 @@
                 console.log('ABtestClick')
             },
             incomeClick(){
-                // this.$router.push('/ABtest')
+                this.$router.push('/incomeClick')
                 console.log('incomeClick')
             }
             ,
             costClick(){
-                // this.$router.push('/ABtest')
+                this.$router.push('/costClick')
                 console.log('costClick')
             }
             ,
             profitClick(){
-                // this.$router.push('/ABtest')
+                this.$router.push('/profitClick')
                 console.log('profitClick')
+            },
+
+            hive(){
+                this.$router.push('/hive')
+                console.log('hive')
+            }
+            ,
+            jieshao(){
+                this.$router.push('/jieshao')
+                console.log('jieshao')
             }
 
         }

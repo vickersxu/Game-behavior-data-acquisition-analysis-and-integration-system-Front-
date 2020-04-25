@@ -10,12 +10,12 @@
                 </i-col>
                 <i-col :md="24" :lg="16" style="margin-bottom: 20px;">
                     <Card shadow>
-                        <chart-bar style="height: 300px;" :value="barData" text="用户留存情况"/>
+                        <chart-bar style="height: 300px;" :value="barData" text="上周新增数据回顾"/>
                     </Card>
                 </i-col>
             </Row>
 
-            <div class="searchButton">
+            <div class="searchButton1">
                 <Button type="primary" >查询数据</Button>
                 &nbsp;
                 &nbsp;
@@ -23,13 +23,13 @@
             </div>
             <br>
 
-            <Select class="picker1" placeholder="请选择游戏" v-model="model1" style="width:200px">
+            <Select class="picker11" placeholder="游戏A" v-model="model1" style="width:200px">
                 <Option v-for="item in cityList" :value="item.value" :key="item.value">{{ item.label }}</Option>
             </Select>
 
-            <row class="picker2">
+            <row class="picker22">
                 <i-col span="12">
-                    <Date-picker type="daterange" placement="right-start" placeholder="请选择日期范围" style="width: 200px"></Date-picker>
+                    <Date-picker :value='v1' type="daterange" placement="right-start" placeholder="请选择日期范围" style="width: 200px"></Date-picker>
                 </i-col>
             </row>
 
@@ -65,6 +65,7 @@
         },
         data () {
             return {
+                v1:['2020-04-19', '2020-04-25'],
                 dom: null,
                 inforCardData: [
                     { title: '新增用户(人)', icon: 'md-person-add', count: 998, color: '#2d8cf0' },
@@ -82,29 +83,27 @@
                     { value: 1548, name: '中国' }
                 ],
                 barData: {
-                    Mon: 13253,
-                    Tue: 34235,
-                    Wed: 26321,
-                    Thu: 12340,
-                    Fri: 24643,
-                    Sat: 1322,
-                    Sun: 1324
+                    周一: 2322,
+                    周二: 3333,
+                    周三: 4321,
+                    周四: 3340,
+                    周五: 4643,
+                    周六: 3253,
+                    周日: 4643
                 },
                 cityList: [
                     {
-                        value: 'New York',
-                        label: 'New York'
+                        value: '游戏A',
+                        label: '游戏A'
                     },
                     {
-                        value: 'London',
-                        label: 'London'
+                        value: '游戏B',
+                        label: '游戏B'
                     },
                     {
-                        value: 'Sydney',
-                        label: 'Sydney'
-                    }
-
-                ],
+                        value: '游戏C',
+                        label: '游戏C'
+                    }],
                 model1: '',
             }
         },
@@ -136,7 +135,7 @@
                     {
                         type: 'category',
                         boundaryGap: false,
-                        data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日']
+                        data: ['19', '20', '21', '22', '23', '24', '25']
                     }
                 ],
                 yAxis: [
@@ -192,7 +191,7 @@
                     }
                 },
                 legend: {
-                    data: ['直接访问', '邮件营销', '联盟广告', '视频广告', '搜索引擎']
+                    data: ['D5留存', 'D4留存', 'D3留存', 'D2留存', 'D1留存']
                 },
                 grid: {
                     left: '3%',
@@ -205,11 +204,11 @@
                 },
                 yAxis: {
                     type: 'category',
-                    data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日']
+                    data: ['上周一', '上周二', '上周三', '上周四', '上周五', '上周六', '上周日']
                 },
                 series: [
                     {
-                        name: '直接访问',
+                        name: 'D5留存',
                         type: 'bar',
                         stack: '总量',
                         label: {
@@ -219,7 +218,7 @@
                         data: [320, 302, 301, 334, 390, 330, 320]
                     },
                     {
-                        name: '邮件营销',
+                        name: 'D4留存',
                         type: 'bar',
                         stack: '总量',
                         label: {
@@ -229,7 +228,7 @@
                         data: [120, 132, 101, 134, 90, 230, 210]
                     },
                     {
-                        name: '联盟广告',
+                        name: 'D3留存',
                         type: 'bar',
                         stack: '总量',
                         label: {
@@ -239,7 +238,7 @@
                         data: [220, 182, 191, 234, 290, 330, 310]
                     },
                     {
-                        name: '视频广告',
+                        name: 'D2留存',
                         type: 'bar',
                         stack: '总量',
                         label: {
@@ -249,7 +248,7 @@
                         data: [150, 212, 201, 154, 190, 330, 410]
                     },
                     {
-                        name: '搜索引擎',
+                        name: 'D1留存',
                         type: 'bar',
                         stack: '总量',
                         label: {
@@ -279,25 +278,25 @@
 
 <style scoped>
 
-    .searchButton{
+    .searchButton1{
         position: absolute ;
         left:85%;
-        top:8%;
+        top:34.5%;
         z-index: 999;
     }
 
 
-    .picker2{
+    .picker22{
         position: absolute ;
         left:26%;
-        top:8%;
+        top:34.5%;
         z-index: 999;
     }
 
-    .picker1{
+    .picker11{
         position: absolute ;
         left:15%;
-        top:8%;
+        top:34.5%;
         z-index: 999;
     }
 

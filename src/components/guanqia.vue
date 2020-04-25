@@ -1,5 +1,6 @@
 <template>
     <div>
+
         <div class="searchButton1">
             <Button type="primary" @click="cx" >查询数据</Button>
             &nbsp;
@@ -17,6 +18,7 @@
                 <Date-picker :value='v1' type="daterange" placement="right-start" placeholder="请选择日期范围" style="width: 200px"></Date-picker>
             </i-col>
         </row>
+        <br><br><br>
         <row>
             <Card shadow>
                 <div ref="dom" style="height: 700px;" ></div>
@@ -28,7 +30,6 @@
 </template>
 
 <script>
-
     import echarts from 'echarts'
     import { on, off } from '../libs/tools.js'
     export default {
@@ -38,9 +39,9 @@
         },
         data () {
             return {
-                v1:['2020-04-19', '2020-04-25'],
-                datass:[],
                 dom: null,
+                datass:[],
+                v1:['2020-04-25', '2020-04-25'],
                 cityList: [
                     {
                         value: '游戏A',
@@ -54,54 +55,75 @@
                         value: '游戏C',
                         label: '游戏C'
                     }],
-                model1: '',
             }
+        },
+        created() {
+
+            this.abc()
+
         },
         methods: {
 
-            abc(){
-
-                this.datass=[
-                    ['product', '19', '20', '21', '22', '23', '24','25'],
-                    ['渠道A', 20.1, -10.4, 35.1, 73.3, 83.8, 38.7,33.2],
-                    ['渠道B', 46.5, 52.1, 75.7, 83.1, -23.4, 55.1,-16.1],
-                    ['渠道C', 24.1, 67.2, -39.5, 86.4, 65.2, 82.5,77.8],
-                    ['渠道D', 20.2, 57.1, 49.2, 62.4, 43.9, 69.1,70.5],
-                ]
-
-            },
 
             qqq(datass){
+
                 const option = {
-                    legend: {},
+                    title: {
+                        text: '关卡漏斗',
+                        subtext: '2020.4.25'
+                    },
                     tooltip: {
-                        trigger: 'axis',
-                        showContent: false
+                        trigger: 'item',
+                        formatter: "{a} <br/>{b} : {c}%"
                     },
-                    dataset: {
-                        source: this.datass
+                    toolbox: {
+                        feature: {
+                            dataView: {readOnly: false},
+                            restore: {},
+                            saveAsImage: {}
+                        }
                     },
-                    xAxis: {type: 'category'},
-                    yAxis: {gridIndex: 0},
-                    grid: {top: '55%'},
+                    legend: {
+                        data: ['第一关','第二关','第三关','第四关','第五关']
+                    },
+
                     series: [
-                        {type: 'line', smooth: true, seriesLayoutBy: 'row'},
-                        {type: 'line', smooth: true, seriesLayoutBy: 'row'},
-                        {type: 'line', smooth: true, seriesLayoutBy: 'row'},
-                        {type: 'line', smooth: true, seriesLayoutBy: 'row'},
                         {
-                            type: 'pie',
-                            id: 'pie',
-                            radius: '30%',
-                            center: ['50%', '25%'],
+                            name:'漏斗图',
+                            type:'funnel',
+                            left: '10%',
+                            top: 60,
+                            //x2: 80,
+                            bottom: 60,
+                            width: '80%',
+                            // height: {totalHeight} - y - y2,
+                            min: 0,
+                            max: 100,
+                            minSize: '0%',
+                            maxSize: '100%',
+                            sort: 'descending',
+                            gap: 2,
                             label: {
-                                formatter: '{b}: {@2012} ({d}%)'
+                                show: true,
+                                position: 'inside'
                             },
-                            encode: {
-                                itemName: 'product',
-                                value: '2012',
-                                tooltip: '2012'
-                            }
+                            labelLine: {
+                                length: 10,
+                                lineStyle: {
+                                    width: 1,
+                                    type: 'solid'
+                                }
+                            },
+                            itemStyle: {
+                                borderColor: '#fff',
+                                borderWidth: 1
+                            },
+                            emphasis: {
+                                label: {
+                                    fontSize: 20
+                                }
+                            },
+                            data: this.datass
                         }
                     ]
                 };
@@ -110,57 +132,48 @@
                 this.$nextTick(() => {
 
                     this.dom = echarts.init(this.$refs.dom)
-
-                    this.dom.on('updateAxisPointer', function (event) {
-                        var xAxisInfo = event.axesInfo[0];
-                        if (xAxisInfo) {
-                            var dimension = xAxisInfo.value + 1;
-                            this.setOption({
-                                series: {
-                                    id: 'pie',
-                                    label: {
-                                        formatter: '{b}: {@[' + dimension + ']} ({d}%)'
-                                    },
-                                    encode: {
-                                        value: dimension,
-                                        tooltip: dimension
-                                    }
-                                }
-                            });
-                        }
-                    });
-
                     this.dom.setOption(option)
                     on(window, 'resize', this.resize)
 
                 })
+
             },
+
 
             cx(){
-
+                console.log("123123")
                 this.datass=[
-                    ['product', '19', '20', '21', '22', '23', '24','25'],
-                    ['渠道A', 77.1, 30.4, 22.1, 51.3, 61.8, 20.7,43.2],
-                    ['渠道B', 25.5, 66.1, 85.7, 83.1, 73.4, 55.1,56.1],
-                    ['渠道C', 24.1, 47.2, 79.5, 48.4, 55.2, 82.5,15.8],
-                    ['渠道D', 24.2, 67.1, 69.2, 72.4, 72.9, 39.1,40.5],
+                    {value: 56.6, name: '第三关'},
+                    {value: 33, name: '第四关'},
+                    {value: 27.6, name: '第五关'},
+                    {value: 80, name: '第二关'},
+                    {value: 88.8, name: '第一关'}
                 ]
 
+            },
+
+            abc(){
+                console.log("123111111111123")
+                this.datass=[
+                    {value: 66.6, name: '第三关'},
+                    {value: 40, name: '第四关'},
+                    {value: 27.6, name: '第五关'},
+                    {value: 80, name: '第二关'},
+                    {value: 98.8, name: '第一关'}
+                ]
 
             },
+
+
+
 
             resize () {
                 this.dom.resize()
             }
         },
-        created() {
-
-            this.abc()
-
-        },
         mounted () {
 
-            this.qqq(this.datass)
+        this.qqq(this.datass)
 
         },
         beforeDestroy () {
@@ -184,33 +197,31 @@
                 },
                 deep: true //对象内部属性的监听，关键。
             }
-        }
 
+        }
     }
 </script>
-
-
 
 <style scoped>
     .searchButton1{
         position: absolute ;
-        left:78%;
-        top:45%;
+        left:86%;
+        top:10%;
         z-index: 999;
     }
 
 
     .picker22{
         position: absolute ;
-        left:31%;
-        top:45%;
+        left:26%;
+        top:10%;
         z-index: 999;
     }
 
     .picker11{
         position: absolute ;
-        left:20%;
-        top:45%;
+        left:13%;
+        top:10%;
         z-index: 999;
     }
 </style>

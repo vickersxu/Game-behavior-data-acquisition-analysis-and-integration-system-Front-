@@ -1,23 +1,22 @@
 <template>
 
-<!--    <div id="app">-->
-    <layout/>
-<!--    <api/>-->
-<!--    </div>-->
-<!--    <router-view></router-view>-->
 
+    <layout/>
+<!--<login></login>-->
 
 </template>
 
 <script>
-// import api from './components/api'
+
 
 import Layout from "./components/layout";
+// import login from "./components/login";
 
 export default {
     name: 'app',
     components: {
       Layout,
+        // login,
       // api
     }
 }
